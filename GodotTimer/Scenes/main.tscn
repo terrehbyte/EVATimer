@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqbteqr5xnoe7"]
+
+[ext_resource type="Texture2D" uid="uid://bp32raeao5xca" path="res://thirdparty/RadioSparks/backdrop.jpg" id="1_8igaf"]
+[ext_resource type="Script" path="res://GodotTimer/Scenes/TimerContainer.gd" id="2_krk6n"]
+[ext_resource type="LabelSettings" path="res://GodotTimer/EVA_main.tres" id="3_wqlev"]
+[ext_resource type="LabelSettings" path="res://GodotTimer/EVA_sub.tres" id="4_cs8de"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8igaf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" node_paths=PackedStringArray("mssNode", "nnNode")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -492.0
+offset_top = -209.0
+offset_right = 570.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.25)
+script = ExtResource("2_krk6n")
+mssNode = NodePath("M_SS")
+nnNode = NodePath("NN")
+totalSeconds = 300.0
+
+[node name="M_SS" type="Label" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "0:00"
+label_settings = ExtResource("3_wqlev")
+vertical_alignment = 2
+
+[node name="NN" type="Label" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = ":00"
+label_settings = ExtResource("4_cs8de")

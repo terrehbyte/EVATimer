@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3]
+
+[ext_resource type="FontFile" uid="uid://c5bwwednix35s" path="res://thirdparty/DESG/DESG7-Classic-Mini/DSEG7ClassicMini-Regular.ttf" id="1_20ehi"]
+
+[resource]
+font = ExtResource("1_20ehi")
+font_size = 256
+font_color = Color(0.933333, 0.584314, 0.0392157, 1)
