@@ -1,0 +1,44 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bro2vgsjc6ggf"]
+
+[ext_resource type="FontFile" uid="uid://b03achnpwigel" path="res://thirdparty/GoogleFonts/Inconsolata/Inconsolata_SemiCondensed-Medium.ttf" id="1_l634l"]
+[ext_resource type="FontFile" uid="uid://b5pj0nmxok8jg" path="res://thirdparty/GoogleFonts/Inconsolata/Inconsolata_SemiCondensed-Bold.ttf" id="2_jcxdh"]
+[ext_resource type="FontFile" uid="uid://dkkimw774s2n3" path="res://thirdparty/GoogleFonts/Jost/Jost-Black.ttf" id="2_whbqy"]
+[ext_resource type="FontFile" uid="uid://dea1g8uv00ix2" path="res://thirdparty/GoogleFonts/Jost/Jost-Regular.ttf" id="4_o6vys"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sw6b"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.97, 0.61304, 0.0388, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ss7yy"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.933333, 0.584314, 0.0392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgpqq"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[resource]
+default_font = ExtResource("4_o6vys")
+default_font_size = 14
+Button/fonts/font = ExtResource("1_l634l")
+Button/styles/hover = SubResource("StyleBoxFlat_8sw6b")
+Button/styles/normal = SubResource("StyleBoxFlat_ss7yy")
+Button/styles/pressed = SubResource("StyleBoxFlat_bgpqq")
+Label/fonts/font = ExtResource("2_whbqy")
+LineEdit/fonts/font = ExtResource("1_l634l")
+TabBar/fonts/font = ExtResource("2_jcxdh")
+TextEdit/fonts/font = ExtResource("1_l634l")
+Tree/fonts/font = ExtResource("1_l634l")
+Tree/fonts/title_button_font = ExtResource("2_jcxdh")

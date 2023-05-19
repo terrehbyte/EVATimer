@@ -1,9 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqbteqr5xnoe7"]
+[gd_scene load_steps=16 format=3 uid="uid://bqbteqr5xnoe7"]
 
 [ext_resource type="Texture2D" uid="uid://bp32raeao5xca" path="res://thirdparty/RadioSparks/backdrop.jpg" id="1_8igaf"]
+[ext_resource type="Script" path="res://GodotTimer/Scenes/EvaTimerScreen.gd" id="1_n8ou2"]
 [ext_resource type="Script" path="res://GodotTimer/Scenes/TimerContainer.gd" id="2_krk6n"]
-[ext_resource type="LabelSettings" path="res://GodotTimer/EVA_main.tres" id="3_wqlev"]
-[ext_resource type="LabelSettings" path="res://GodotTimer/EVA_sub.tres" id="4_cs8de"]
+[ext_resource type="Texture2D" uid="uid://bqqvg578kb60m" path="res://GodotTimer/white.png" id="2_n7t3p"]
+[ext_resource type="LabelSettings" uid="uid://cmhjj5crpnk67" path="res://GodotTimer/EVA_main.tres" id="3_wqlev"]
+[ext_resource type="Texture2D" uid="uid://4mvigt6522ge" path="res://GodotTimer/eva_ui_fill_gradient.png" id="3_y7k7b"]
+[ext_resource type="LabelSettings" uid="uid://833q0a5ode76" path="res://GodotTimer/EVA_sub.tres" id="4_cs8de"]
+[ext_resource type="Texture2D" uid="uid://cgx3jir4n1nbj" path="res://GodotTimer/eva_ui_overlay.png" id="4_y41ti"]
+[ext_resource type="Theme" uid="uid://bro2vgsjc6ggf" path="res://GodotTimer/EVA_ui.tres" id="5_0icuw"]
+[ext_resource type="LabelSettings" uid="uid://bkfqwl61iwt64" path="res://GodotTimer/EVA_ui_button.tres" id="6_ntogq"]
+[ext_resource type="FontFile" uid="uid://gf2rtpofamol" path="res://thirdparty/GoogleFonts/Jost/Jost-SemiBold.ttf" id="6_r7gka"]
+[ext_resource type="FontFile" uid="uid://cy4qdbdfor8g8" path="res://thirdparty/GoogleFonts/MPlus1p/MPLUS1p-Black.ttf" id="7_ibyvl"]
+[ext_resource type="AudioStream" uid="uid://dnd3qo3sqoktd" path="res://thirdparty/UI Sound Pack/Retro1.wav" id="8_ls0ra"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rer2r"]
+font = ExtResource("6_r7gka")
+font_size = 42
+font_color = Color(0.933333, 0.584314, 0.0392157, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a6tbg"]
+font = ExtResource("7_ibyvl")
+font_size = 72
+font_color = Color(0.933333, 0.584314, 0.0392157, 1)
 
 [node name="Node2D" type="Node2D"]
 
@@ -16,27 +35,86 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_n8ou2")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+[node name="FillArea" type="TextureRect" parent="CanvasLayer/Control"]
+clip_children = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_8igaf")
+texture = ExtResource("2_n7t3p")
+expand_mode = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" node_paths=PackedStringArray("mssNode", "nnNode")]
+[node name="FillTexture" type="TextureRect" parent="CanvasLayer/Control/FillArea"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_y7k7b")
+
+[node name="Overlay" type="TextureRect" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -492.0
-offset_top = -209.0
-offset_right = 570.0
-offset_bottom = 102.0
+offset_left = -960.0
+offset_top = -540.5
+offset_right = 960.0
+offset_bottom = 540.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_y41ti")
+
+[node name="ACTIVE TIME REMAINING" type="Label" parent="CanvasLayer/Control/Overlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = -257.0
+offset_right = 373.0
+offset_bottom = -193.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_0icuw")
+text = "ACTIVE TIME REMAINING:"
+label_settings = SubResource("LabelSettings_rer2r")
+
+[node name="WINDOW TITLE" type="Label" parent="CanvasLayer/Control/Overlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -564.0
+offset_top = -300.0
+offset_right = -165.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_0icuw")
+text = "限界まで"
+label_settings = SubResource("LabelSettings_a6tbg")
+autowrap_mode = 3
+
+[node name="Timer" type="HBoxContainer" parent="CanvasLayer/Control" node_paths=PackedStringArray("mssNode", "nnNode", "sfxPlayer")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -481.0
+offset_top = -138.0
+offset_right = 565.0
+offset_bottom = 107.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.25)
@@ -44,16 +122,82 @@ script = ExtResource("2_krk6n")
 mssNode = NodePath("M_SS")
 nnNode = NodePath("NN")
 totalSeconds = 300.0
+tickSound = ExtResource("8_ls0ra")
+sfxPlayer = NodePath("AudioStreamPlayer")
 
-[node name="M_SS" type="Label" parent="CanvasLayer/Control/HBoxContainer"]
+[node name="M_SS" type="Label" parent="CanvasLayer/Control/Timer"]
 layout_mode = 2
 size_flags_vertical = 8
-text = "0:00"
+text = "00:00"
 label_settings = ExtResource("3_wqlev")
 vertical_alignment = 2
 
-[node name="NN" type="Label" parent="CanvasLayer/Control/HBoxContainer"]
+[node name="NN" type="Label" parent="CanvasLayer/Control/Timer"]
 layout_mode = 2
 size_flags_vertical = 8
 text = ":00"
 label_settings = ExtResource("4_cs8de")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Control/Timer"]
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -491.0
+offset_top = 213.0
+offset_right = 552.0
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 128
+alignment = 1
+
+[node name="STOP" type="Button" parent="CanvasLayer/Control/Buttons"]
+custom_minimum_size = Vector2(156, 64)
+layout_mode = 2
+theme = ExtResource("5_0icuw")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Buttons/STOP"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 71.0
+grow_horizontal = 2
+theme = ExtResource("5_0icuw")
+text = "STOP"
+label_settings = ExtResource("6_ntogq")
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/Buttons/STOP"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -74.0
+offset_top = 67.0
+offset_right = 74.0
+offset_bottom = 87.0
+grow_horizontal = 2
+pivot_offset = Vector2(74, 10)
+color = Color(0.772549, 0, 0.0352941, 1)
+
+[node name="ReferenceImage" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8igaf")
+
+[connection signal="timer_second_tick" from="CanvasLayer/Control/Timer" to="CanvasLayer/Control" method="_on_timer_timer_second_tick"]

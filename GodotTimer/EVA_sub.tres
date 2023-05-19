@@ -1,8 +1,8 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://833q0a5ode76"]
 
-[ext_resource type="FontFile" uid="uid://c5bwwednix35s" path="res://thirdparty/DESG/DESG7-Classic-Mini/DSEG7ClassicMini-Regular.ttf" id="1_umx5g"]
+[ext_resource type="FontFile" uid="uid://c5bwwednix35s" path="res://thirdparty/DESG/DESG7-Classic-Mini/DSEG7ClassicMini-Regular.ttf" id="1_jenxi"]
 
 [resource]
-font = ExtResource("1_umx5g")
-font_size = 200
+font = ExtResource("1_jenxi")
+font_size = 164
 font_color = Color(0.933333, 0.584314, 0.0392157, 1)

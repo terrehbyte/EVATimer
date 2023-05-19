@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bkfqwl61iwt64"]
+
+[ext_resource type="FontFile" uid="uid://cvx58dacg31oq" path="res://thirdparty/GoogleFonts/Inconsolata/Inconsolata-Medium.ttf" id="1_ur5hr"]
+
+[resource]
+font = ExtResource("1_ur5hr")
+font_size = 64
+font_color = Color(0.933333, 0.584314, 0.0392157, 1)
