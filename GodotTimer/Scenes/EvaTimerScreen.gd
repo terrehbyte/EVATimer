@@ -3,5 +3,17 @@ extends Control
 @export var fillControl : TextureRect
 @export var timer : TimerContainer
 
-func _on_timer_timer_second_tick(seconds_remaining):
-	pass # Replace with function body.
+var noise : Noise
+var timeElapsed : float
+
+func _ready():
+	noise = FastNoiseLite.new()
+	pass
+
+func _process(delta : float):
+	timeElapsed += delta
+	var curNoise = noise.get_noise_1d(timeElapsed * 100.0) / 10.0
+	if timer.getTimeRemainingFrac() == 0.0:
+		curNoise = 0.0
+	fillControl.anchor_right = timer.getTimeRemainingFrac() + curNoise
+	pass

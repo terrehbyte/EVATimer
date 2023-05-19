@@ -28,7 +28,7 @@ font_color = Color(0.933333, 0.584314, 0.0392157, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="EVA Timer Screen" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("fillControl", "timer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,8 +36,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n8ou2")
+fillControl = NodePath("FillArea")
+timer = NodePath("Timer")
 
-[node name="FillArea" type="TextureRect" parent="CanvasLayer/Control"]
+[node name="FillArea" type="TextureRect" parent="CanvasLayer/EVA Timer Screen"]
 clip_children = 2
 layout_mode = 1
 anchors_preset = 15
@@ -48,13 +50,13 @@ grow_vertical = 2
 texture = ExtResource("2_n7t3p")
 expand_mode = 1
 
-[node name="FillTexture" type="TextureRect" parent="CanvasLayer/Control/FillArea"]
+[node name="FillTexture" type="TextureRect" parent="CanvasLayer/EVA Timer Screen/FillArea"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("3_y7k7b")
 
-[node name="Overlay" type="TextureRect" parent="CanvasLayer/Control"]
+[node name="Overlay" type="TextureRect" parent="CanvasLayer/EVA Timer Screen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -69,7 +71,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_y41ti")
 
-[node name="ACTIVE TIME REMAINING" type="Label" parent="CanvasLayer/Control/Overlay"]
+[node name="ACTIVE TIME REMAINING" type="Label" parent="CanvasLayer/EVA Timer Screen/Overlay"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -86,7 +88,7 @@ theme = ExtResource("5_0icuw")
 text = "ACTIVE TIME REMAINING:"
 label_settings = SubResource("LabelSettings_rer2r")
 
-[node name="WINDOW TITLE" type="Label" parent="CanvasLayer/Control/Overlay"]
+[node name="WINDOW TITLE" type="Label" parent="CanvasLayer/EVA Timer Screen/Overlay"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -104,7 +106,7 @@ text = "限界まで"
 label_settings = SubResource("LabelSettings_a6tbg")
 autowrap_mode = 3
 
-[node name="Timer" type="HBoxContainer" parent="CanvasLayer/Control" node_paths=PackedStringArray("mssNode", "nnNode", "sfxPlayer")]
+[node name="Timer" type="HBoxContainer" parent="CanvasLayer/EVA Timer Screen" node_paths=PackedStringArray("mssNode", "nnNode", "sfxPlayer")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -121,26 +123,26 @@ scale = Vector2(1, 1.25)
 script = ExtResource("2_krk6n")
 mssNode = NodePath("M_SS")
 nnNode = NodePath("NN")
-totalSeconds = 300.0
+totalSeconds = 840.0
 tickSound = ExtResource("8_ls0ra")
 sfxPlayer = NodePath("AudioStreamPlayer")
 
-[node name="M_SS" type="Label" parent="CanvasLayer/Control/Timer"]
+[node name="M_SS" type="Label" parent="CanvasLayer/EVA Timer Screen/Timer"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "00:00"
 label_settings = ExtResource("3_wqlev")
 vertical_alignment = 2
 
-[node name="NN" type="Label" parent="CanvasLayer/Control/Timer"]
+[node name="NN" type="Label" parent="CanvasLayer/EVA Timer Screen/Timer"]
 layout_mode = 2
 size_flags_vertical = 8
 text = ":00"
 label_settings = ExtResource("4_cs8de")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Control/Timer"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/EVA Timer Screen/Timer"]
 
-[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/Control"]
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/EVA Timer Screen"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -157,13 +159,13 @@ grow_vertical = 2
 theme_override_constants/separation = 128
 alignment = 1
 
-[node name="STOP" type="Button" parent="CanvasLayer/Control/Buttons"]
+[node name="STOP" type="Button" parent="CanvasLayer/EVA Timer Screen/Buttons"]
 custom_minimum_size = Vector2(156, 64)
 layout_mode = 2
 theme = ExtResource("5_0icuw")
 icon_alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Buttons/STOP"]
+[node name="Label" type="Label" parent="CanvasLayer/EVA Timer Screen/Buttons/STOP"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -177,7 +179,7 @@ text = "STOP"
 label_settings = ExtResource("6_ntogq")
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/Buttons/STOP"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/EVA Timer Screen/Buttons/STOP"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 1
 anchors_preset = 5
@@ -191,7 +193,7 @@ grow_horizontal = 2
 pivot_offset = Vector2(74, 10)
 color = Color(0.772549, 0, 0.0352941, 1)
 
-[node name="ReferenceImage" type="TextureRect" parent="CanvasLayer/Control"]
+[node name="ReferenceImage" type="TextureRect" parent="CanvasLayer/EVA Timer Screen"]
 visible = false
 layout_mode = 2
 anchor_right = 1.0
@@ -199,5 +201,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_8igaf")
-
-[connection signal="timer_second_tick" from="CanvasLayer/Control/Timer" to="CanvasLayer/Control" method="_on_timer_timer_second_tick"]

@@ -18,6 +18,9 @@ var isTimerCompleted : bool = false
 var lastSecondTick : int
 var remainingSeconds : float
 
+func getTimeRemainingFrac():
+	return remainingSeconds / totalSeconds
+
 # Called at start of lifetime.
 func _ready():
 	timer_started.emit(remainingSeconds)
