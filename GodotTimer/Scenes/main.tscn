@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqbteqr5xnoe7"]
+[gd_scene load_steps=19 format=3 uid="uid://bqbteqr5xnoe7"]
 
 [ext_resource type="Texture2D" uid="uid://bp32raeao5xca" path="res://thirdparty/RadioSparks/backdrop.jpg" id="1_8igaf"]
 [ext_resource type="Script" path="res://GodotTimer/Scenes/EvaTimerScreen.gd" id="1_n8ou2"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://gf2rtpofamol" path="res://thirdparty/GoogleFonts/Jost/Jost-SemiBold.ttf" id="6_r7gka"]
 [ext_resource type="FontFile" uid="uid://cy4qdbdfor8g8" path="res://thirdparty/GoogleFonts/MPlus1p/MPLUS1p-Black.ttf" id="7_ibyvl"]
 [ext_resource type="AudioStream" uid="uid://dnd3qo3sqoktd" path="res://thirdparty/UI Sound Pack/Retro1.wav" id="8_ls0ra"]
+[ext_resource type="FontFile" uid="uid://c5bwwednix35s" path="res://thirdparty/DESG/DESG7-Classic-Mini/DSEG7ClassicMini-Regular.ttf" id="8_oowjj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rer2r"]
 font = ExtResource("6_r7gka")
@@ -23,6 +24,16 @@ font_color = Color(0.933333, 0.584314, 0.0392157, 1)
 font = ExtResource("7_ibyvl")
 font_size = 72
 font_color = Color(0.933333, 0.584314, 0.0392157, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aijwt"]
+font = ExtResource("8_oowjj")
+font_size = 208
+font_color = Color(0.14902, 0.14902, 0.14902, 0.501961)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ue4oa"]
+font = ExtResource("8_oowjj")
+font_size = 164
+font_color = Color(0.14902, 0.14902, 0.14902, 0.501961)
 
 [node name="Node2D" type="Node2D"]
 
@@ -38,6 +49,15 @@ grow_vertical = 2
 script = ExtResource("1_n8ou2")
 fillControl = NodePath("FillArea")
 timer = NodePath("Timer")
+
+[node name="BG_Color_Fill" type="ColorRect" parent="CanvasLayer/EVA Timer Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0941176, 0.0941176, 0.501961)
 
 [node name="FillArea" type="TextureRect" parent="CanvasLayer/EVA Timer Screen"]
 clip_children = 2
@@ -105,6 +125,34 @@ theme = ExtResource("5_0icuw")
 text = "限界まで"
 label_settings = SubResource("LabelSettings_a6tbg")
 autowrap_mode = 3
+
+[node name="Timer_Back" type="HBoxContainer" parent="CanvasLayer/EVA Timer Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -481.0
+offset_top = -138.0
+offset_right = 565.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.25)
+
+[node name="M_SS" type="Label" parent="CanvasLayer/EVA Timer Screen/Timer_Back"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "00:00"
+label_settings = SubResource("LabelSettings_aijwt")
+vertical_alignment = 2
+
+[node name="NN" type="Label" parent="CanvasLayer/EVA Timer Screen/Timer_Back"]
+layout_mode = 2
+size_flags_vertical = 8
+text = ":00"
+label_settings = SubResource("LabelSettings_ue4oa")
 
 [node name="Timer" type="HBoxContainer" parent="CanvasLayer/EVA Timer Screen" node_paths=PackedStringArray("mssNode", "nnNode", "sfxPlayer")]
 layout_mode = 1
