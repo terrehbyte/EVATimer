@@ -122,7 +122,7 @@ offset_bottom = -151.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_0icuw")
-text = "限界まで"
+text = "TIMER"
 label_settings = SubResource("LabelSettings_a6tbg")
 autowrap_mode = 3
 
@@ -171,7 +171,7 @@ scale = Vector2(1, 1.25)
 script = ExtResource("2_krk6n")
 mssNode = NodePath("M_SS")
 nnNode = NodePath("NN")
-totalSeconds = 840.0
+totalSeconds = 900.0
 tickSound = ExtResource("8_ls0ra")
 sfxPlayer = NodePath("AudioStreamPlayer")
 
