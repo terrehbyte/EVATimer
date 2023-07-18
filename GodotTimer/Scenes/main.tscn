@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=3 uid="uid://bqbteqr5xnoe7"]
+[gd_scene load_steps=18 format=3 uid="uid://bqbteqr5xnoe7"]
 
-[ext_resource type="Texture2D" uid="uid://bp32raeao5xca" path="res://thirdparty/RadioSparks/backdrop.jpg" id="1_8igaf"]
 [ext_resource type="Script" path="res://GodotTimer/Scenes/EvaTimerScreen.gd" id="1_n8ou2"]
 [ext_resource type="Script" path="res://GodotTimer/Scenes/TimerContainer.gd" id="2_krk6n"]
 [ext_resource type="Texture2D" uid="uid://bqqvg578kb60m" path="res://GodotTimer/white.png" id="2_n7t3p"]
@@ -240,12 +239,3 @@ offset_bottom = 87.0
 grow_horizontal = 2
 pivot_offset = Vector2(74, 10)
 color = Color(0.772549, 0, 0.0352941, 1)
-
-[node name="ReferenceImage" type="TextureRect" parent="CanvasLayer/EVA Timer Screen"]
-visible = false
-layout_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_8igaf")
